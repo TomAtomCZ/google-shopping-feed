@@ -472,11 +472,12 @@ class Item
      */
     protected function getGroupIdentifier()
     {
-        if( ! isset( $this->nodes['mpn'] ) && ! isset( $this->nodes['gtin'] ) ) {
-            throw new MissingIdentifierException("Please define a GTIN or MPN value before creating a variant.");
-        }
-        if( isset( $this->nodes['mpn'] ) ) return $this->nodes['mpn']->get('value') . '_group';
-        return $this->nodes['gtin']->get('value') . '_group';
+        return $this->nodes['id']->get('value');
+//        if( ! isset( $this->nodes['mpn'] ) && ! isset( $this->nodes['gtin'] ) ) {
+//            throw new MissingIdentifierException("Please define a GTIN or MPN value before creating a variant.");
+//        }
+//        if( isset( $this->nodes['mpn'] ) ) return $this->nodes['mpn']->get('value') . '_group';
+//        return $this->nodes['gtin']->get('value') . '_group';
     }
 
     /**
